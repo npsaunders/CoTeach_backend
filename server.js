@@ -77,17 +77,6 @@ app.get("/content", async (req, res) => {
     }
 });
 
-// Content CREATE ROUTE
-app.post("/content", async (req, res) => {
-    try {
-        // send all  content
-        res.json(await Content.create(req.body));
-    } catch (error) {
-        //send error
-        res.status(400).json(error);
-    }
-});
-
 // Content DELETE ROUTE
 app.delete("/content/:id", async (req, res) => {
     try {
@@ -112,6 +101,16 @@ app.put("/content/:id", async (req, res) => {
     }
 });
 
+// Content CREATE ROUTE
+app.post("/content", async (req, res) => {
+    try {
+        // send all  content
+        res.json(await Content.create(req.body));
+    } catch (error) {
+        //send error
+        res.status(400).json(error);
+    }
+});
 
 ///////////////////////////////
 // LISTENER
