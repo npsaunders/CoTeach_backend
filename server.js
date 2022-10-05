@@ -117,8 +117,6 @@ app.post("/content", async (req, res) => {
         res.status(400).json(error);
     }
 });
-<<<<<<< HEAD
-=======
 
 // Notes INDEX ROUTE
 app.get("/notes", async (req, res) => {
@@ -132,7 +130,7 @@ app.get("/notes", async (req, res) => {
 });
 
 // Notes Create Route
-app.post("/notes" , async (req, res) => {
+app.post("/notes", async (req, res) => {
     try {
         // send notes to database
         res.json(await Notes.create(req.body));
@@ -142,7 +140,6 @@ app.post("/notes" , async (req, res) => {
     }
 })
 
->>>>>>> master
 
 ///////////////////////////////
 // LISTENER
