@@ -51,6 +51,12 @@ const ContentSchema = new mongoose.Schema({
 })
 const Content = mongoose.model("Content", ContentSchema);
 
+const NotesSchema = new mongoose.Schema({
+    notes: String,
+})
+
+const Notes = mongoose.model("Notes", NotesSchema);
+
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
@@ -89,7 +95,7 @@ app.delete("/content/:id", async (req, res) => {
 });
 
 //  Content UPDATE ROUTE
-app.put("/content/:id", async (req, res) => {
+app.put("/content/:id/", async (req, res) => {
     try {
         // send all content
         res.json(
@@ -111,6 +117,32 @@ app.post("/content", async (req, res) => {
         res.status(400).json(error);
     }
 });
+<<<<<<< HEAD
+=======
+
+// Notes INDEX ROUTE
+app.get("/notes", async (req, res) => {
+    try {
+        // send all notes
+        res.json(await Notes.find({}));
+    } catch (error) {
+        //send error
+        res.status(400).json(error);
+    }
+});
+
+// Notes Create Route
+app.post("/notes" , async (req, res) => {
+    try {
+        // send notes to database
+        res.json(await Notes.create(req.body));
+    } catch (error) {
+        // send error msg
+        res.status(400).json(error);
+    }
+})
+
+>>>>>>> master
 
 ///////////////////////////////
 // LISTENER
